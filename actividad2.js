@@ -1,0 +1,126 @@
+let individual = [
+    {
+      personas: "2",
+      condiciones: "1",
+      condiciones2: "1"
+
+    }
+]
+
+let doble = [
+    {
+        personas: "4",
+        condiciones: "1",
+        condiciones2: "1"
+    }
+]
+
+let familiar = [
+    {
+        personas: "6",
+        condiciones: "2",
+        condiciones2: "2"
+    }
+]
+
+alert("hola bienvenido al hotel sirena");
+
+let animalesOno = prompt ("marca 1 si no tienes mascotas, marca 2 si tienes mascotas")
+
+if(animalesOno === "1"){
+  alert("no tienes mascotas")
+}else if (animalesOno === "2"){
+    alert ("las mascotas solo son permitidas en la habitacion familiar")
+} else {
+    alert ("incorrecto")
+}
+
+let fumar = prompt ("marca 1 si fumas,marca 2 si no")
+let categoria;
+ if (fumar === "1"){
+ categoria = 'fumador'; 
+} else if (fumar === "2"){
+  categoria = 'nofumador'
+ } else {
+     alert ("incorrecto")
+ }
+
+switch  (categoria) {
+    case 'fumador':
+       alert (`solo se puede fumar en las habitaciones dobles e individuales`);
+        break;
+    
+    case 'nofumador':
+      alert (`puedes hospedarte en cualquier habitacion `)
+
+    default:
+        alert ("incorrecto")
+        break;
+}
+
+
+
+let tipodehabitacion = prompt("Marca 1 para una habitación individual, marca 2 para una habitación doble, marca 3 para una habitación familiar");
+
+let capacidadPermitida; 
+
+if (tipodehabitacion === "1") {
+    alert("Has seleccionado una habitación individual.");
+    capacidadPermitida = 2;
+} else if (tipodehabitacion === "2") {
+    alert("Has seleccionado una habitación doble.");
+    capacidadPermitida = 4;
+    
+} else if (tipodehabitacion === "3") {
+    alert("Has seleccionado una habitación familiar.");
+    capacidadPermitida = 6;
+    
+} else {
+    alert("Por favor, selecciona una opción válida (1, 2 o 3).");
+}
+
+if (tipodehabitacion === "1" && fumar === "1" && animalesOno === "1"){
+    alert ("si se puede hospedar")
+}else if (tipodehabitacion === "2" && fumar === "1" && animalesOno === "1" ){
+    alert ("si se puede hospedar ")
+} else if (tipodehabitacion === "3" && fumar === "1" ){
+    alert("no se puede hospedar, porque en la habitacion familiar no se puede fumar")
+} else if (tipodehabitacion === "3" && fumar === "2"){
+    alert ("si se puede hospedar, ya que no fumas")
+}else{
+    alert("incorrecto")
+}
+
+     
+let personasHospedan = parseInt(prompt("¿Cuántas personas se hospedan?"))
+
+if (isNaN(personasHospedan) || personasHospedan <= 0) {
+    alert("Por favor, introduce un número válido de personas.")
+} else if (personasHospedan > capacidadPermitida) {
+    alert(`La cantidad de personas excede la capacidad máxima permitida para esta habitación (${capacidadPermitida} personas).`)
+} else if (personasHospedan <= capacidadPermitida){
+    alert(`Sí, pueden hospedarse en la habitación seleccionada (máximo ${capacidadPermitida} personas).`)
+}
+console.log(capacidadPermitida)
+
+let reserva = {
+  nombre: "Juan Pérez",
+  paisOrigen: "Colombia",
+  numeroPersonas: 3,
+  periodoEstadia: {
+    inicio: "2024-10-15",
+    fin: "2024-10-20"
+  },
+  personasOcupandoHotel: 10,
+  traeMascota: true
+};
+
+
+console.log(`Reserva de: ${reserva.nombre}`);
+console.log(`País de origen: ${reserva.paisOrigen}`);
+console.log(`Número de personas: ${reserva.numeroPersonas}`);
+console.log(`Periodo de estadía: del ${reserva.periodoEstadia.inicio} al ${reserva.periodoEstadia.fin}`);
+console.log(`Personas ocupando el hotel: ${reserva.personasOcupandoHotel}`);
+console.log(`Trae mascota: ${reserva.traeMascota ? 'Sí' : 'No'}`);
+
+alert(`el hotel tiene ${reserva.personasOcupandoHotel} reservas`)
